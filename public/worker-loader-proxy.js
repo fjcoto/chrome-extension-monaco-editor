@@ -21,7 +21,8 @@ switch (label) {
         workerMain = './vs/language/typescript/ts.worker.js';
         break;
     default:
-        workerMain = './vs/editor/editor.worker.js';
+        workerMain = 'vs/base/worker/workerMain.js';
+
 }
 
 importScripts(workerMain);

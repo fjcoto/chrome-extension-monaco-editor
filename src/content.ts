@@ -1,13 +1,9 @@
 const disclaimerTd = document.querySelector("td[style*='background-color:#F76464']") as HTMLTableCellElement | null;
 if (disclaimerTd) {
     disclaimerTd.style.display = 'none';
-    console.log('[Extensión] Disclaimer ocultado (desde TypeScript)');
 }
 
 (() => {
-    console.log('[Extensión] Iniciando content script...');
-
-    // 🔍 Buscar el textarea original
     const textarea = document.querySelector<HTMLTextAreaElement>('textarea[name="sql_query"]');
     if (!textarea) {
         console.warn('[Extensión] No se encontró el <textarea> sql_query');
@@ -27,7 +23,6 @@ if (disclaimerTd) {
 
     iframe.onload = () => {
         iframe.contentWindow?.postMessage({ type: 'setValue', value }, '*');
-        console.log('[Extensión] Valor inicial enviado al iframe');
     };
 
     window.addEventListener('message', (event) => {
